@@ -1,11 +1,6 @@
 type Query {
   info: String!
-  feed(
-    filter: String
-    skip: Int
-    first: Int
-    orderBy: LinkOrderByInput
-  ): [Link!]!
+  feed(filter: String, skip: Int, first: Int, orderBy: LinkOrderByInput): Feed
   link(id: ID!): Link
   users: [User!]!
   user(id: ID!): User
@@ -41,6 +36,11 @@ type Vote {
   id: ID!
   link: Link!
   user: User!
+}
+
+type Feed {
+  links: [Link!]!
+  count: Int!
 }
 
 type AuthPayload {
