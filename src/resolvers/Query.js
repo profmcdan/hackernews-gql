@@ -7,7 +7,11 @@ async function feed(parent, args, context, info) {
         ],
       }
     : {};
-  const links = await context.prisma.links({ where });
+  const links = await context.prisma.links({
+    where,
+    skip: args.skip,
+    first: args.first,
+  });
   return links;
 }
 
