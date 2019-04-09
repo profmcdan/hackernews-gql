@@ -1,6 +1,11 @@
 type Query {
   info: String!
-  feed(filter: String, skip: Int, first: Int): [Link!]!
+  feed(
+    filter: String
+    skip: Int
+    first: Int
+    orderBy: LinkOrderByInput
+  ): [Link!]!
   link(id: ID!): Link
   users: [User!]!
   user(id: ID!): User
@@ -46,4 +51,11 @@ type AuthPayload {
 type Subscription {
   newLink: Link
   newVote: Vote
+}
+
+enum LinkOrderByInput {
+  description_ASC
+  description_DESC
+  url_ASC
+  url_DESC
 }
