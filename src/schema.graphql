@@ -33,3 +33,7 @@ type AuthPayload {
   token: String
   user: User
 }
+
+type Subscription {
+  newLink: Link
+}
